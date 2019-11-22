@@ -33,16 +33,6 @@ export class DateInputComponent implements OnInit {
     this.dateTemplate = await this.translateServ.get("dateFormat").toPromise();
   }
 
-  getErrorMessage(dateInput: string) {
-    if (!dateInput || dateInput === "") {
-      let noDateMessage;
-      this.translateServ.get("no_date").subscribe(msg => {
-        noDateMessage = msg;
-      });
-      return noDateMessage;
-    }
-  }
-
   validDate() {
     return (control: AbstractControl): any => {
       if (moment(control.value).isAfter(this.max)) {
