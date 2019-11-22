@@ -24,7 +24,7 @@ export class DateInputComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._adapter.setLocale("nl");
+    this._adapter.setLocale("en-GB");
     this.setDateTemplate();
     this.dateInput.valueChanges.subscribe(value => console.log(this.dateInput));
   }
