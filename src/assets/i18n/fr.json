@@ -1,0 +1,8 @@
+{
+  "dateFormat": "JJ/MM/AAAA",
+  "no_date": "Veuillez choisir une date",
+  "invalid_format": "Entrée non valide : Veuillez entrer une chaîne de caractères sous forme de JJ/MM/AAAA",
+  "future_date": "Date invalide : Veuillez entrer une date au plus tard aujourd'hui.",
+  "invalid_date": "Date invalide : Veuillez entrer une date avec un mois et une date valides.",
+  "unknown_error": "Cette date n'est pas valable"
+}

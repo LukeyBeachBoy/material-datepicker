@@ -1,0 +1,8 @@
+{
+  "dateFormat": "MM-DD-JJJJ",
+  "no_date": "Kies een datum",
+  "invalid_format": "Ongeldige invoer: Gelieve een string in te voeren in de vorm van MM-DD-JJJJJJ.",
+  "future_date": "Ongeldige datum: Gelieve uiterlijk vandaag een datum in te voeren.",
+  "invalid_date": "Ongeldige datum: Gelieve een datum met een geldige maand en datum in te voeren.",
+  "unknown_error": "Dat is geen geldige datum."
+}

@@ -1,0 +1,8 @@
+{
+  "dateFormat": "DD/MM/YYYY",
+  "no_date": "Please choose a date",
+  "invalid_format": "Invalid input: Please input a string in the form of DD-MM-YYYY",
+  "future_date": "Invalid date: Please input a date no later than today",
+  "invalid_date": "Invalid date: Please input a date with a valid month and date",
+  "unknown_error": "That date is not valid"
+}

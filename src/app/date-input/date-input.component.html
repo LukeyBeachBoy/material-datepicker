@@ -1,0 +1,15 @@
+<mat-form-field>
+	<input [formControl]="dateInput" #pickerInput matInput [min]="this.min" [max]="this.max"
+		[matDatepicker]="datePicker" [placeholder]="dateTemplate">
+	<mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+	<mat-datepicker #datePicker></mat-datepicker>
+	<mat-error *ngIf="dateInput.errors && dateInput.touched">
+		<mat-error *ngIf="dateInput.errors['required'] && !dateInput.errors['matDatepickerParse']">
+			{{'no_date' | translate}}</mat-error>
+		<mat-error *ngIf="dateInput.errors['required']&&dateInput.errors['matDatepickerParse']">
+			{{'invalid_date' | translate}}
+		</mat-error>
+		<mat-error *ngIf="dateInput.errors['future_date']">{{'future_date' | translate}}</mat-error>
+		<mat-error *ngIf="dateInput.errors['past_date']">{{'invalid_date' | translate}}</mat-error>
+	</mat-error>
+</mat-form-field>
