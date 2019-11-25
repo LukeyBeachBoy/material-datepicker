@@ -6,15 +6,21 @@ import {
   MatDatepickerModule,
   MatInputModule,
   MatFormFieldModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
+  DateAdapter,
+  MAT_DATE_FORMATS
 } from "@angular/material";
+import {
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_FORMATS
+} from "@angular/material-moment-adapter";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AppComponent } from "./app.component";
 import { DateInputComponent } from "./date-input/date-input.component";
-
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "/assets/i18n/", ".json");
@@ -39,6 +45,14 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatNativeDateModule,
     MatInputModule,
     MatFormFieldModule
+  ],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE]
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }
   ],
   declarations: [AppComponent, DateInputComponent],
   bootstrap: [AppComponent]

@@ -41,9 +41,6 @@ export class DateInputComponent implements OnInit {
       if (moment(control.value).isBefore(this.min)) {
         return { past_date: true };
       }
-      if (!moment(control.value, "DD/MM/YYYY").isValid()) {
-        return { invalid_date_format: true };
-      }
     };
   }
 }
