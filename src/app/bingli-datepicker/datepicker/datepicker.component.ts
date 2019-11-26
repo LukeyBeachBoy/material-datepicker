@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { TranslateService } from "@ngx-translate/core";
+import { Component, OnInit, Output, Input } from "@angular/core";
 import { DateAdapter } from "@angular/material/core";
 import { FormControl, AbstractControl, Validators } from "@angular/forms";
 
 import moment from "moment";
+import { EventEmitter } from "events";
 
 @Component({
   selector: "bingli-datepicker",
@@ -11,25 +11,28 @@ import moment from "moment";
   styleUrls: ["./datepicker.component.css"]
 })
 export class DatepickerComponent implements OnInit {
-  dateTemplate: string;
+  @Input() dateTemplate: string;
+  @Input() errorMessages: {
+    future_date: string;
+    invalid_date: string;
+    no_date: string;
+  };
+  @Output() dateSelected = new EventEmitter();
+
   dateInput: FormControl = new FormControl("", {
     updateOn: "blur",
     validators: [Validators.required, this.validDate()]
   });
   min = moment(new Date()).subtract(100, "years");
   max = new Date();
-  constructor(
-    private translateServ: TranslateService,
-    private _adapter: DateAdapter<any>
-  ) {}
+  constructor(private _adapter: DateAdapter<any>) {}
 
   ngOnInit() {
     this._adapter.setLocale("en-GB");
-    this.setDateTemplate();
   }
 
-  async setDateTemplate() {
-    this.dateTemplate = await this.translateServ.get("dateFormat").toPromise();
+  submit() {
+    this.dateSelected.emit(this.dateInput.value);
   }
 
   validDate() {
