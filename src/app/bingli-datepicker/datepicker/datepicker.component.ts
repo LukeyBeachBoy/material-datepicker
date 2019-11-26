@@ -6,11 +6,11 @@ import { FormControl, AbstractControl, Validators } from "@angular/forms";
 import moment from "moment";
 
 @Component({
-  selector: "app-date-input",
-  templateUrl: "./date-input.component.html",
-  styleUrls: ["./date-input.component.css"]
+  selector: "bingli-datepicker",
+  templateUrl: "./datepicker.component.html",
+  styleUrls: ["./datepicker.component.css"]
 })
-export class DateInputComponent implements OnInit {
+export class DatepickerComponent implements OnInit {
   dateTemplate: string;
   dateInput: FormControl = new FormControl("", {
     updateOn: "blur",
@@ -26,7 +26,6 @@ export class DateInputComponent implements OnInit {
   ngOnInit() {
     this._adapter.setLocale("en-GB");
     this.setDateTemplate();
-    this.dateInput.valueChanges.subscribe(value => console.log(this.dateInput));
   }
 
   async setDateTemplate() {
