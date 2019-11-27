@@ -1,9 +1,8 @@
-import { Component, OnInit, Output, Input } from "@angular/core";
+import { Component, OnInit, Output, Input, EventEmitter } from "@angular/core";
 import { DateAdapter } from "@angular/material/core";
 import { FormControl, AbstractControl, Validators } from "@angular/forms";
 
 import moment from "moment";
-import { EventEmitter } from "events";
 
 @Component({
   selector: "bingli-datepicker",

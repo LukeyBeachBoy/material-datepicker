@@ -15,15 +15,9 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_FORMATS
 } from "@angular/material-moment-adapter";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { DatepickerComponent } from "./datepicker/datepicker.component";
-
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, "/assets/i18n/", ".json");
-}
+import { DatepickerComponent } from "./datepicker.component";
 
 @NgModule({
   declarations: [DatepickerComponent],
@@ -37,13 +31,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatInputModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
     HttpClientModule,
     RouterModule
   ],
